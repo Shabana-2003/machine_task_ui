@@ -39,6 +39,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.transparent,
         color: Colors.black,
+        index: _selectedIndex,
         items: const [
           Icon(Icons.mic_none_outlined,
               color: Color.fromARGB(255, 184, 184, 184)),

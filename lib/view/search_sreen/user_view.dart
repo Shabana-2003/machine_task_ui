@@ -6,7 +6,6 @@ class UserView extends StatefulWidget {
   const UserView({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _UserViewState createState() => _UserViewState();
 }
 
@@ -20,24 +19,38 @@ class _UserViewState extends State<UserView> {
   void initState() {
     super.initState();
     _futureUsers = UserRepository().fetchUsers();
-    _searchController.addListener(_filterUsers);
+    _futureUsers.then((users) {
+      setState(() {
+        _users = users;
+        _filteredUsers = users;
+      });
+    });
+    _searchController.addListener(_onSearchChanged);
   }
 
   @override
   void dispose() {
-    _searchController.removeListener(_filterUsers);
+    _searchController.removeListener(_onSearchChanged);
     _searchController.dispose();
     super.dispose();
   }
 
-  void _filterUsers() {
-    final query = _searchController.text.toLowerCase();
+  void _onSearchChanged() {
+    _filterUsers(_searchController.text);
+  }
+
+  void _filterUsers(String query) {
     setState(() {
-      _filteredUsers = _users.where((user) {
-        final nameLower = user.userName.toLowerCase();
-        final emailLower = user.email.toLowerCase();
-        return nameLower.contains(query) || emailLower.contains(query);
-      }).toList();
+      if (query.isEmpty) {
+        _filteredUsers = _users;
+      } else {
+        final lowerCaseQuery = query.toLowerCase();
+        _filteredUsers = _users.where((user) {
+          final nameLower = user.userName.toLowerCase();
+          final emailLower = user.email.toLowerCase();
+          return nameLower.contains(lowerCaseQuery) || emailLower.contains(lowerCaseQuery);
+        }).toList();
+      }
     });
   }
 
@@ -72,8 +85,10 @@ class _UserViewState extends State<UserView> {
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
             return const Center(child: Text('No users found'));
           }
-          _users = snapshot.data!;
-          _filteredUsers = _users;
+
+          if (_filteredUsers.isEmpty) {
+            return const Center(child: Text('User not found'));
+          }
 
           return ListView.builder(
             itemCount: _filteredUsers.length,
