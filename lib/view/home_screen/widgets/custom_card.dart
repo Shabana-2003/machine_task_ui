@@ -5,7 +5,8 @@ class CustomCard extends StatelessWidget {
   final String title;
   final String subtitle;
 
-  CustomCard({
+  const CustomCard({
+    super.key,
     required this.imageUrl,
     required this.title,
     required this.subtitle,
@@ -15,7 +16,7 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 5,
-      margin: EdgeInsets.all(8),
+      margin: const EdgeInsets.all(8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -29,7 +30,7 @@ class CustomCard extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
@@ -39,7 +40,7 @@ class CustomCard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(
               subtitle,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 14,
                 color: Colors.grey,
               ),
@@ -54,12 +55,12 @@ class CustomCard extends StatelessWidget {
 class GridViewCards extends StatelessWidget {
   final List<Map<String, String>> cardData;
 
-  GridViewCards({required this.cardData});
+  const GridViewCards({super.key, required this.cardData});
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: 8,
         mainAxisSpacing: 8,

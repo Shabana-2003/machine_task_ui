@@ -9,12 +9,12 @@ class CustomGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(), // Ensures the grid is scrollable with the page
+      physics: const NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2, // Number of columns
-        crossAxisSpacing: 8.0, // Horizontal spacing
-        mainAxisSpacing: 8.0, // Vertical spacing
-        childAspectRatio: 1.0, // Aspect ratio of the grid items
+        crossAxisCount: 2,
+        crossAxisSpacing: 8.0,
+        mainAxisSpacing: 8.0,
+        childAspectRatio: 1.0,
       ),
       itemCount: items.length,
       itemBuilder: (context, index) {
@@ -68,5 +68,6 @@ class GridItem {
   final String title;
   final String subtitle;
 
-  GridItem({required this.imageUrl, required this.title, required this.subtitle});
+  GridItem(
+      {required this.imageUrl, required this.title, required this.subtitle});
 }

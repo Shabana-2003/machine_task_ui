@@ -1,10 +1,12 @@
-// user_view.dart
 import 'package:flutter/material.dart';
 import 'package:machine_task_ui/models/user_model.dart';
-import 'package:machine_task_ui/view/widgets/user_repository.dart';
+import 'package:machine_task_ui/controller/user_repository.dart';
 
 class UserView extends StatefulWidget {
+  const UserView({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _UserViewState createState() => _UserViewState();
 }
 
@@ -45,7 +47,7 @@ class _UserViewState extends State<UserView> {
       appBar: AppBar(
         title: const Text('Users'),
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(kToolbarHeight),
+          preferredSize: const Size.fromHeight(kToolbarHeight),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
@@ -64,14 +66,12 @@ class _UserViewState extends State<UserView> {
         future: _futureUsers,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(child: Text('No users found'));
+            return const Center(child: Text('No users found'));
           }
-
-          // Initialize users and filteredUsers
           _users = snapshot.data!;
           _filteredUsers = _users;
 
@@ -85,7 +85,7 @@ class _UserViewState extends State<UserView> {
                       ? NetworkImage(user.profileImage!)
                       : null,
                   child: user.profileImage == null
-                      ? Icon(Icons.person)
+                      ? const Icon(Icons.person)
                       : null,
                 ),
                 title: Text(user.userName),

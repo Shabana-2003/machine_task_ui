@@ -6,11 +6,11 @@ class CustomHeading extends StatelessWidget {
   final String imageUrl;
 
   const CustomHeading({
-    Key? key,
+    super.key,
     required this.title,
     required this.subtitle,
     required this.imageUrl,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,24 +18,29 @@ class CustomHeading extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: Row(
         children: [
-          // Title and Subtitle
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   title,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w200,color: Colors.grey,),
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w200,
+                    color: Colors.grey,
+                  ),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   subtitle,
-                  style: TextStyle(fontSize: 16, color: const Color.fromARGB(255, 0, 0, 0),fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 16,
+                      color:  Color.fromARGB(255, 0, 0, 0),
+                      fontWeight: FontWeight.bold),
                 ),
               ],
             ),
           ),
-          
           Stack(
             clipBehavior: Clip.none,
             children: [
@@ -50,22 +55,21 @@ class CustomHeading extends StatelessWidget {
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.3), // Shadow color
-                      spreadRadius: 1, // Spread radius
-                      blurRadius: 6, // Blur radius
-                      offset: Offset(0, 5), // Offset of the shadow
+                      color: Colors.black.withOpacity(0.3),
+                      spreadRadius: 1,
+                      blurRadius: 6,
+                      offset: const Offset(0, 5),
                     ),
                   ],
                 ),
               ),
-              // Green circle with white circle inside
               Positioned(
                 top: -5,
                 right: -5,
                 child: Container(
                   width: 18,
                   height: 18,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.green,
                     shape: BoxShape.circle,
                   ),
@@ -73,7 +77,7 @@ class CustomHeading extends StatelessWidget {
                     child: Container(
                       width: 10,
                       height: 10,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                         shape: BoxShape.circle,
                       ),
@@ -83,10 +87,11 @@ class CustomHeading extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(width: 5,)
+          const SizedBox(
+            width: 5,
+          )
         ],
       ),
     );
   }
 }
-

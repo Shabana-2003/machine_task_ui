@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HighlightsProfile extends StatelessWidget {
-  final List<String> imageUrls; // List of image asset paths
-  final List<String> titles; // List of titles for each image
+  final List<String> imageUrls; 
+  final List<String> titles;
 
   const HighlightsProfile({
     Key? key,
@@ -13,7 +13,7 @@ class HighlightsProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100, // Height of the scrollable area
+      height: 100,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: imageUrls.length,
@@ -35,7 +35,7 @@ class HighlightsProfile extends StatelessWidget {
                             ? Colors.transparent
                             : ((index == 2 || index == 6)
                                 ? const Color.fromARGB(255, 18, 159, 65)
-                                : const Color.fromARGB(255, 171, 171, 171)), // Outline color for all but the first
+                                : const Color.fromARGB(255, 171, 171, 171)),
                         width: 3,
                       ),
                       image: DecorationImage(

@@ -4,13 +4,10 @@ import 'package:machine_task_ui/view/home_screen/widgets/cards/horizondal_card_l
 import 'package:machine_task_ui/view/home_screen/widgets/custom_heading.dart';
 import 'package:machine_task_ui/view/home_screen/widgets/custom_text.dart';
 import 'package:machine_task_ui/view/home_screen/widgets/highlights_profiles.dart';
-import 'package:machine_task_ui/view/home_screen/widgets/scrollable_cards.dart';
 import 'package:machine_task_ui/view/home_screen/widgets/underline_text_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
-
- 
 
   final List<GridItem> gridItems = [
     GridItem(
@@ -37,7 +34,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     final List<Map<String, String>> items = [
+    final List<Map<String, String>> items = [
       {
         'imageUrl': 'assets/images/card3.png',
         'title': 'Jetpack Joi',
@@ -53,19 +50,18 @@ class HomeScreen extends StatelessWidget {
         'title': 'Green',
         'subtitle': 'Green Full Game',
       },
-      
     ];
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-          const  CustomHeading(
+            const CustomHeading(
               title: 'Hi Nevil,',
               subtitle: 'Welcome Back!',
               imageUrl: 'assets/images/profile.jpeg',
             ),
-           const SizedBox(height: 5),
-           const HighlightsProfile(
+            const SizedBox(height: 5),
+            const HighlightsProfile(
               imageUrls: [
                 'assets/images/profile1.jpeg',
                 'assets/images/profile2.jpeg',
@@ -91,7 +87,9 @@ class HomeScreen extends StatelessWidget {
                 'Rosa'
               ],
             ),
-             SizedBox(height: 4,),
+            const SizedBox(
+              height: 4,
+            ),
             Column(
               children: [
                 const Row(
@@ -114,21 +112,24 @@ class HomeScreen extends StatelessWidget {
                             size: 15,
                             color: Color.fromARGB(255, 0, 0, 0),
                             fontWeight: FontWeight.bold)),
-                  const  SizedBox(
+                    const SizedBox(
                       width: 160,
                     ),
                     UnderlinedTextButton(
                         text: 'View All',
                         fontSize: 10,
                         textColor: const Color.fromARGB(255, 118, 118, 118),
-                        underlineColor: const Color.fromARGB(255, 140, 140, 140),
+                        underlineColor:
+                            const Color.fromARGB(255, 140, 140, 140),
                         fontWeight: FontWeight.w200,
                         onPressed: () {})
                   ],
                 ),
               ],
             ),
-            SizedBox(height: 4,),
+            const SizedBox(
+              height: 4,
+            ),
             HorizontalCardList(items: items),
             Row(
               children: [
@@ -140,7 +141,7 @@ class HomeScreen extends StatelessWidget {
                         size: 15,
                         color: Color.fromARGB(255, 0, 0, 0),
                         fontWeight: FontWeight.bold)),
-                SizedBox(
+                const SizedBox(
                   width: 94,
                 ),
                 UnderlinedTextButton(
@@ -152,9 +153,11 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () {})
               ],
             ),
-            SizedBox(height: 7,),
+            const SizedBox(
+              height: 7,
+            ),
             Padding(
-              padding: const EdgeInsets.only(left: 10,right: 10),
+              padding: const EdgeInsets.only(left: 10, right: 10),
               child: CustomGridView(items: gridItems),
             ),
           ],

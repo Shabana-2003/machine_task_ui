@@ -4,10 +4,7 @@ import 'package:machine_task_ui/view/chat_screen.dart';
 import 'package:machine_task_ui/view/favorites_screen.dart';
 import 'package:machine_task_ui/view/home_screen/home_screen.dart';
 import 'package:machine_task_ui/view/mic_screen.dart';
-import 'package:machine_task_ui/view/search_screen.dart';
 import 'package:machine_task_ui/view/search_sreen/user_view.dart';
-
-
 
 class BottomNavBarScreen extends StatefulWidget {
   const BottomNavBarScreen({super.key});
@@ -17,14 +14,14 @@ class BottomNavBarScreen extends StatefulWidget {
 }
 
 class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
-  int _selectedIndex = 2; 
+  int _selectedIndex = 2;
 
   final List<Widget> _pages = [
     const MicScreen(),
     const ChatScreen(),
-   HomeScreen(),
+    HomeScreen(),
     const FavoritesScreen(),
-    UserView()
+    const UserView()
   ];
 
   void _onItemTapped(int index) {
@@ -43,11 +40,14 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
         backgroundColor: Colors.transparent,
         color: Colors.black,
         items: const [
-          Icon(Icons.mic_none_outlined, color: Color.fromARGB(255, 184, 184, 184)),
+          Icon(Icons.mic_none_outlined,
+              color: Color.fromARGB(255, 184, 184, 184)),
           Icon(Icons.chat_outlined, color: Color.fromARGB(255, 184, 184, 184)),
           Icon(Icons.home_filled, color: Colors.white),
-          Icon(Icons.favorite_outline, color: Color.fromARGB(255, 184, 184, 184)),
-          Icon(Icons.search_outlined, color:Color.fromARGB(255, 184, 184, 184)),
+          Icon(Icons.favorite_outline,
+              color: Color.fromARGB(255, 184, 184, 184)),
+          Icon(Icons.search_outlined,
+              color: Color.fromARGB(255, 184, 184, 184)),
         ],
         onTap: _onItemTapped,
       ),

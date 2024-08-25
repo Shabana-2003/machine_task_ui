@@ -19,21 +19,19 @@ class SlidableCards extends StatelessWidget {
       height: 150,
       child: Stack(
         children: [
-         
           ClipRRect(
             borderRadius: BorderRadius.circular(30.0),
             child: Image.asset(
               assetImagePath,
               height: double.infinity,
               width: double.infinity,
-              fit: BoxFit.cover, // Ensures the image covers the entire container
+              fit: BoxFit.cover,
             ),
           ),
-          // Text at the bottom of the image
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center, // Aligns text to the bottom
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
@@ -41,7 +39,7 @@ class SlidableCards extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 14.0,
                     fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 255, 255, 255), // White color to contrast with the image
+                    color: Color.fromARGB(255, 255, 255, 255),
                   ),
                 ),
                 const SizedBox(height: 4.0),
@@ -49,7 +47,7 @@ class SlidableCards extends StatelessWidget {
                   subtitle,
                   style: const TextStyle(
                     fontSize: 10.0,
-                    color: Color.fromARGB(179, 255, 255, 255), // Slightly dimmed white for the subtitle
+                    color: Color.fromARGB(179, 255, 255, 255),
                   ),
                 ),
               ],

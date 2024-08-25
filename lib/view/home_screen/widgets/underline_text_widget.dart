@@ -9,14 +9,14 @@ class UnderlinedTextButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   const UnderlinedTextButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.fontSize,
     required this.textColor,
     required this.underlineColor,
     required this.fontWeight,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class UnderlinedTextButton extends StatelessWidget {
             fontSize: fontSize,
             color: textColor,
             fontWeight: fontWeight,
-            decoration: TextDecoration.none, // Ensure no default underline
+            decoration: TextDecoration.none,
           ),
         ),
       ),
